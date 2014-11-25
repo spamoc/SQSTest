@@ -1,0 +1,10 @@
+#center_field{
+	margin: 50px 40px;
+}
+#name_field{
+	margin: auto;
+	text-align: center;
+}
+#shout_field{
+	visibility: hidden;
+}

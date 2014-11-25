@@ -6,30 +6,44 @@
 	<head>
 		<title>sqs test</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap-responsive.min.css")">
 		<script type="text/javascript" src="@controllers.routes.Application.routes()"></script>
+		<script src="@routes.Assets.at("javascripts/main.js")" type="text/javascript"></script>
 		<script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
 		<script type="text/javascript">
 		<!--
 			$(function(){
-				
+				$('#exec_name').on('click', function(){
+					setName();
+				});
 			});
 		-->
 		</script>
 	</head>
 	<body>
-	@helper.form(action = controllers.routes.Application.setUserName()) {
-		<fieldset>
-			@helper.inputText(inputForm("name"), '_label -> "name", '_showConstraints -> false, '_showErrors -> false)
-		</fieldset>
-	}
+	<div id="center_field">
+	<div id="name_field">
+		@helper.form(action = controllers.routes.Application.setUserName()) {
+			<fieldset>
+				@helper.inputText(inputForm("name"), '_label -> "name", '_showConstraints -> false, '_showErrors -> false, 'id -> "name")
+			</fieldset>
+			<input type="button" class="btn btn-primary" id="exec_name" value="register"/>
+		}
+	</div>
+	<div id="shout_field">
 	@helper.form(action = controllers.routes.Application.shout()) {
 		<fieldset>
-			@helper.inputText(inputForm("items"), '_label -> "アイテムNo.(複数選択可、カンマ区切りで入力)", '_showConstraints -> false, '_showErrors -> false)
+			@helper.inputText(inputForm("shout"), '_showConstraints -> false, '_showErrors -> false, 'id -> "shout")
+			@helper.inputFile(inputForm("img"), '_showConstraints -> false, '_showErrors -> false, 'id -> "img")
 		</fieldset>
-		<input type="button" id="exec" class="btn btn-primary" value="実行" onClick="confirmDeleteCart(this.form)">
+		<input type="button" class="btn btn-primary" id="exec_shout" value="実行">
 	}
+	</div>
 	<div id="puller">
 		
 	</div>
+	</div>
+</body>
+</html>
