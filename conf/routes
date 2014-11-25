@@ -1,3 +1,8 @@
 # Routes
-
 GET     /                           controllers.Application.index()
+POST    /name                       controllers.Application.setUserName()
+POST    /shout                      controllers.Application.shout()
+GET     /shout                      controllers.Application.getShout()
+
+GET     /routes                     controllers.Application.routes()
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
